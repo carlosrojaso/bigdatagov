@@ -19,6 +19,7 @@ from application import app
 from decorators import login_required, admin_required
 from forms import ExampleForm
 from models import ExampleModel
+import logging
 
 
 # Flask-Cache (configured to use App Engine Memcache API)
@@ -26,7 +27,7 @@ cache = Cache(app)
 
 
 def home():
-    return redirect(url_for('list_examples'))
+    return redirect(url_for('signin'))
 
 
 def say_hello(username):
@@ -35,8 +36,11 @@ def say_hello(username):
 
 
 @login_required
-def list_examples():
+def dashboard():
     """List all examples"""
+    email = request.args.get('email',"")
+    profile = request.args.get('profile',"")
+    logging.info("email=%s profile=%s",email,profile)
     examples = ExampleModel.query()
     form = ExampleForm()
     if form.validate_on_submit():
@@ -49,11 +53,11 @@ def list_examples():
             example.put()
             example_id = example.key.id()
             flash(u'Example %s successfully saved.' % example_id, 'success')
-            return redirect(url_for('list_examples'))
+            return redirect(url_for('dashboard'))
         except CapabilityDisabledError:
             flash(u'App Engine Datastore is currently in read-only mode.', 'info')
-            return redirect(url_for('list_examples'))
-    return render_template('list_examples.html', examples=examples, form=form)
+            return redirect(url_for('dashboard'))
+    return render_template('signin.html', examples=examples, form=form)
 
 
 @login_required
@@ -66,7 +70,7 @@ def edit_example(example_id):
             example.example_description = form.data.get('example_description')
             example.put()
             flash(u'Example %s successfully saved.' % example_id, 'success')
-            return redirect(url_for('list_examples'))
+            return redirect(url_for('signin'))
     return render_template('edit_example.html', example=example, form=form)
 
 
@@ -88,6 +92,9 @@ def admin_only():
     """This view requires an admin account"""
     return 'Super-seekrit admin page.'
 
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
 
 @cache.cached(timeout=60)
 def cached_examples():
@@ -102,4 +109,3 @@ def warmup():
 
     """
     return ''
-

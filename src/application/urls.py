@@ -22,7 +22,7 @@ app.add_url_rule('/', 'home', view_func=views.home)
 app.add_url_rule('/hello/<username>', 'say_hello', view_func=views.say_hello)
 
 # Examples list page
-app.add_url_rule('/examples', 'list_examples', view_func=views.list_examples, methods=['GET', 'POST'])
+app.add_url_rule('/dashboard', 'dashboard', view_func=views.dashboard, methods=['GET', 'POST'])
 
 # Examples list page (cached)
 app.add_url_rule('/examples/cached', 'cached_examples', view_func=views.cached_examples, methods=['GET'])
