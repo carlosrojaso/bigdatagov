@@ -60,7 +60,7 @@
    * Display the user's basic profile information from the profile object.
    */
   function displayProfile(profile){
-    window.location="{{url_for('/dashboard')}}?email=" + email + "&profile=" + profile['displayName'];
+    window.location="http://localhost:8080/dashboard?email=" + email + "&profile=" + profile['displayName'];
   }
 
   /**
@@ -87,6 +87,5 @@
     </div>
     <!-- In most cases, you don't want to use approvalprompt=force. Specified
     here to facilitate the demo.-->
-  </div>
 </body>
 </html>
