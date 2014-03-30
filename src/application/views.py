@@ -34,8 +34,6 @@ def say_hello(username):
     """Contrived example to demonstrate Flask's url routing capabilities"""
     return 'Hello %s' % username
 
-
-@login_required
 def dashboard():
     """List all examples"""
     email = request.args.get('email',"")
@@ -57,10 +55,9 @@ def dashboard():
         except CapabilityDisabledError:
             flash(u'App Engine Datastore is currently in read-only mode.', 'info')
             return redirect(url_for('dashboard'))
-    return render_template('signin.html', examples=examples, form=form)
+    return render_template('dashboard.html', examples=examples, form=form)
 
 
-@login_required
 def edit_example(example_id):
     example = ExampleModel.get_by_id(example_id)
     form = ExampleForm(obj=example)
@@ -74,7 +71,6 @@ def edit_example(example_id):
     return render_template('edit_example.html', example=example, form=form)
 
 
-@login_required
 def delete_example(example_id):
     """Delete an example object"""
     example = ExampleModel.get_by_id(example_id)

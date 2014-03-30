@@ -29,7 +29,24 @@
     </div><!-- /container -->
     <footer>
         <div id="footer" class="container">
-            {% block footer %}{% endblock %}
+            {% block footer %}
+            {% endblock %}
+
+                    <div class="container">
+            <div class="row credits">
+                <div class="col-sm-6">
+                    <div class="row copyright">
+                        <div class="col-md-12">
+                            © 2013 Powered by &nbsp;&nbsp;<a href="#" class="appengine">
+                               <a href=""><img src="/static/img/app-engine.png"/></a>
+                            </a>
+                            <a href="#" class="appengine">
+                               <a href=""><img src="/static/img/bigquery.png"/></a>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
         </div><!-- /footer -->
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{ jquery_version }}/jquery.min.js"></script>

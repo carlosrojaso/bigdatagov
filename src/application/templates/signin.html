@@ -3,6 +3,11 @@
 {% block style_block %}
 <link rel="stylesheet" type="text/css" href="/static/css/sign-in.css">
 <link rel="stylesheet" type="text/css" href="/static/css/theme.css">
+<style type="text/css">
+body{
+  background-color: #ffffff;
+}
+</style>
 {% endblock %}
 
 {% block content %}
@@ -13,19 +18,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 header">
-                    <h4>Log in to your account</h4>
+                    <h4>Ingresa:</h4>
                     <p>
-                        There are many variations of passages of Lorem alteration in some form  injected humour these randomised words .</p>
+                    Solo conecta tu app y deja que la magia comience...
+                    </p>
 
                     <div class="col-md-4 social">
                         <a href="#" class="circle facebook">
-                            <img src="img/face.png" alt="">
+                            <img src="/static/img/face.png" alt="">
                         </a>
                          <a href="#" class="circle twitter">
-                            <img src="img/twt.png" alt="">
+                            <img src="/static/img/twt.png" alt="">
                         </a>
                          <a href="#" class="circle gplus">
-                            <img src="img/gplus.png" alt="">
+                            <img src="/static/img/gplus.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -70,24 +76,7 @@
                 <h3>Sign in <span>(option 2)</span></h3>
             </div>
             <div class="row login">
-                <div class="col-sm-5 left_box">
-                    <h4>Log in to your account</h4>
 
-                    <div class="perk_box">
-                        <div class="perk">
-                            <span class="icos ico1"></span>
-                            <p><strong>Lorem alteration</strong> in some form  injected humour these randomised words .</p>
-                        </div>
-                        <div class="perk">
-                            <span class="icos ico2"></span>
-                            <p><strong>There are many variations</strong> of passages of Lorem alteration in some form  injected humour these randomised words.</p>
-                        </div>
-                        <div class="perk">
-                            <span class="icos ico3"></span>
-                            <p><strong>Alteration in some form</strong> injected humour these randomised words.</p>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col-sm-6 signin_box">
                     <div class="box">
@@ -130,63 +119,7 @@
 
     <!-- starts footer -->
     {% block footer %}
-        <div class="container">
-            <div class="row info">
-                <div class="col-sm-6 residence">
-                    <ul>
-                        <li>2301 East Lamar Blvd. Suite 140. City, Arlington.</li>
-                        <li>United States, Zip Code TX 76006.</li>
-                    </ul>
-                </div>
-                <div class="col-sm-5 touch">
-                    <ul>
-                        <li><strong>P.</strong> 1 817 274 2933</li>
-                        <li><strong>E.</strong><a href="#"> bootstrap@twitter.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row credits">
-                <div class="col-md-12">
-                    <div class="row social">
-                        <div class="span12">
-                            <a href="#" class="facebook">
-                                <span class="socialicons ico1"></span>
-                                <span class="socialicons_h ico1h"></span>
-                            </a>
-                            <a href="#" class="twitter">
-                                <span class="socialicons ico2"></span>
-                                <span class="socialicons_h ico2h"></span>
-                            </a>
-                            <a href="#" class="gplus">
-                                <span class="socialicons ico3"></span>
-                                <span class="socialicons_h ico3h"></span>
-                            </a>
-                            <a href="#" class="flickr">
-                                <span class="socialicons ico4"></span>
-                                <span class="socialicons_h ico4h"></span>
-                            </a>
-                            <a href="#" class="pinterest">
-                                <span class="socialicons ico5"></span>
-                                <span class="socialicons_h ico5h"></span>
-                            </a>
-                            <a href="#" class="dribble">
-                                <span class="socialicons ico6"></span>
-                                <span class="socialicons_h ico6h"></span>
-                            </a>
-                            <a href="#" class="behance">
-                                <span class="socialicons ico7"></span>
-                                <span class="socialicons_h ico7h"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row copyright">
-                        <div class="col-md-12">
-                            © 2013 Clean Canvas. All rights reserved. Theme by Detail Canvas.
-                        </div>
-                    </div>
-                </div>            
-            </div>
-        </div>
+
     {% endblock footer %}
 
 {% endblock content %}
@@ -325,7 +258,7 @@ var servicesCircle = {
    * Display the user's basic profile information from the profile object.
    */
   function displayProfile(profile){
-    /* window.location="http://localhost:8080/dashboard?email=" + email + "&profile=" + profile['displayName']; */
+    window.location="http://localhost:8080/dashboard?email=" + email + "&profile=" + profile['displayName'];
   }
 
   /**
